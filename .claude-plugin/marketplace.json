@@ -1,0 +1,15 @@
+{
+  "name": "savedwise",
+  "description": "Savedwise: turn saved social media posts into a knowledge base you will use.",
+  "owner": {
+    "name": "Tim van der Ploeg",
+    "url": "https://github.com/t1mvdploeg"
+  },
+  "plugins": [
+    {
+      "name": "savedwise",
+      "source": "./",
+      "description": "Turn your saved Instagram and TikTok posts into a personal knowledge base: notes, domains, what fits your projects, and skills worth building."
+    }
+  ]
+}
