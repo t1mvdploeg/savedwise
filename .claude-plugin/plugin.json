@@ -1,5 +1,5 @@
 {
-  "name": "savedwise",
+  "name": "scrollback",
   "description": "Turn your saved Instagram and TikTok posts into a personal knowledge base: notes, domains, what fits your projects, and skills worth building.",
   "version": "0.1.0",
   "author": {
@@ -7,7 +7,7 @@
     "email": "133122358+t1mvdploeg@users.noreply.github.com"
   },
   "license": "MIT",
-  "homepage": "https://github.com/t1mvdploeg/savedwise",
-  "repository": "https://github.com/t1mvdploeg/savedwise",
+  "homepage": "https://github.com/t1mvdploeg/scrollback",
+  "repository": "https://github.com/t1mvdploeg/scrollback",
   "keywords": ["instagram", "tiktok", "knowledge-base", "transcription", "skill"]
 }

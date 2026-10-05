@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Check a Savedwise knowledge base: every post has a note and sits in exactly one domain file, and every link to items/ resolves.
+"""Check a Scrollback knowledge base: every post has a note and sits in exactly one domain file, and every link to items/ resolves.
 
 Posts that fetch.py tried but could not download (deleted, private, login refused) need no note; they are listed, not counted as problems.
 Usage: python check.py <kb-folder>   (exit code 1 when there are problems)

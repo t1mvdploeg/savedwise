@@ -14,7 +14,7 @@ Accept any mix of URLs, one per line or separated by spaces. Keep only links to 
 
 ```js
 (async () => {
-  const seen = new Set(window.__savedwise || []);
+  const seen = new Set(window.__scrollback || []);
   const pick = () => document
     .querySelectorAll('a[href*="/reel/"], a[href*="/p/"], a[href*="/video/"], a[href*="/photo/"]')
     .forEach(a => seen.add(a.href.split('?')[0]));
@@ -26,18 +26,18 @@ Accept any mix of URLs, one per line or separated by spaces. Keep only links to 
     last = seen.size;
   }
   pick();
-  window.__savedwise = [...seen];
-  return window.__savedwise.length;
+  window.__scrollback = [...seen];
+  return window.__scrollback.length;
 })()
 ```
 
-4. Read the links in batches of 50 with `window.__savedwise.slice(0, 50).join('\n')`. The tool may block output that looks like base64, such as Instagram shortcodes. Then return each URL with spaces between the characters and remove them afterwards:
+4. Read the links in batches of 50 with `window.__scrollback.slice(0, 50).join('\n')`. The tool may block output that looks like base64, such as Instagram shortcodes. Then return each URL with spaces between the characters and remove them afterwards:
 
 ```js
-window.__savedwise.slice(0, 50).map(u => u.split('').join(' ')).join(' | ')
+window.__scrollback.slice(0, 50).map(u => u.split('').join(' ')).join(' | ')
 ```
 
 5. Compare the count with what the collection shows. If it is lower, change `1500` to `3000` and run step 3 again.
-6. Append to `links.tsv` with the collection slug, then clear the set (`window.__savedwise = []`) before the next collection.
+6. Append to `links.tsv` with the collection slug, then clear the set (`window.__scrollback = []`) before the next collection.
 
 Report the number of new links per collection.

@@ -1,9 +1,9 @@
 ---
-name: savedwise
-description: Turns saved Instagram and TikTok posts (reels, videos, carousels, photo posts) into a personal knowledge base - one note per post, topic domains, an overview of what is worth doing, which of the user's own projects each tip fits, and skills worth building. Use when the user wants to process, summarise or learn from their saved, bookmarked or favorited social media posts, add newly saved posts, or update an existing Savedwise knowledge base.
+name: scrollback
+description: Turns saved Instagram and TikTok posts (reels, videos, carousels, photo posts) into a personal knowledge base - one note per post, topic domains, an overview of what is worth doing, which of the user's own projects each tip fits, and skills worth building. Use when the user wants to process, summarise or learn from their saved, bookmarked or favorited social media posts, add newly saved posts, or update an existing Scrollback knowledge base.
 ---
 
-# Savedwise
+# Scrollback
 
 Turn a pile of saved posts into a knowledge base the user will actually use. Every post is downloaded, transcribed and read frame by frame, summarised into a note, and grouped into domains with a verdict per post and advice tied to the user's own projects. Everything stays on the user's machine.
 

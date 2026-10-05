@@ -1,23 +1,23 @@
 <p align="center">
-  <img src="assets/mark.svg" alt="Savedwise" width="120">
+  <img src="assets/mark.svg" alt="Scrollback" width="120">
 </p>
 
-<h1 align="center">Savedwise</h1>
+<h1 align="center">Scrollback</h1>
 
 <p align="center">
   Turn the posts you saved on Instagram and TikTok into a knowledge base you will actually use.
 </p>
 
 <p align="center">
-  <a href="https://github.com/t1mvdploeg/savedwise/actions/workflows/test.yml"><img src="https://github.com/t1mvdploeg/savedwise/actions/workflows/test.yml/badge.svg" alt="tests"></a>
+  <a href="https://github.com/t1mvdploeg/scrollback/actions/workflows/test.yml"><img src="https://github.com/t1mvdploeg/scrollback/actions/workflows/test.yml/badge.svg" alt="tests"></a>
   <img src="https://img.shields.io/badge/Claude%20Code-plugin-D97757" alt="Claude Code plugin">
   <img src="https://img.shields.io/badge/python-%E2%89%A5%203.10-3776AB" alt="Python 3.10 or newer">
   <img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT license">
 </p>
 
-![The overview Savedwise wrote for ten saved posts](assets/demo.png)
+![The overview Scrollback wrote for ten saved posts](assets/demo.png)
 
-You save dozens of reels about tools, workflows and tricks, and never look at them again. Savedwise reads them all, the speech and the text on screen, and tells you which ones are worth acting on, for which of your own projects.
+You save dozens of reels about tools, workflows and tricks, and never look at them again. Scrollback reads them all, the speech and the text on screen, and tells you which ones are worth acting on, for which of your own projects.
 
 It is a Claude Code plugin: one skill that walks Claude through five phases, plus two small scripts for the work that should not burn tokens.
 
@@ -26,11 +26,11 @@ It is a Claude Code plugin: one skill that walks Claude through five phases, plu
 In Claude Code:
 
 ```
-/plugin marketplace add t1mvdploeg/savedwise
-/plugin install savedwise@savedwise
+/plugin marketplace add t1mvdploeg/scrollback
+/plugin install scrollback@scrollback
 ```
 
-Then ask *"process my saved Instagram collection AI"*, or run `/savedwise:savedwise`.
+Then ask *"process my saved Instagram collection AI"*, or run `/scrollback:scrollback`.
 
 You need [ffmpeg](https://ffmpeg.org/download.html) and [uv](https://docs.astral.sh/uv/getting-started/installation/). Collecting links by scrolling needs [Claude in Chrome](https://claude.com/chrome); pasting links works without it.
 

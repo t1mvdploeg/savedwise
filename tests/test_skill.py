@@ -1,7 +1,7 @@
 import re
 from pathlib import Path
 
-SKILL = Path(__file__).resolve().parent.parent / "skills" / "savedwise"
+SKILL = Path(__file__).resolve().parent.parent / "skills" / "scrollback"
 
 
 def frontmatter(text):
@@ -11,7 +11,7 @@ def frontmatter(text):
 
 def test_frontmatter():
     fm = frontmatter((SKILL / "SKILL.md").read_text(encoding="utf-8"))
-    assert fm["name"] == "savedwise"
+    assert fm["name"] == "scrollback"
     assert 100 < len(fm["description"]) <= 1024
 
 

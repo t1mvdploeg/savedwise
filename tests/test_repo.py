@@ -25,8 +25,8 @@ def repo_texts():
 def test_manifests_agree():
     plugin = json.loads((ROOT / ".claude-plugin" / "plugin.json").read_text(encoding="utf-8"))
     market = json.loads((ROOT / ".claude-plugin" / "marketplace.json").read_text(encoding="utf-8"))
-    assert plugin["name"] == "savedwise"
-    assert [(p["name"], p["source"]) for p in market["plugins"]] == [("savedwise", "./")]
+    assert plugin["name"] == "scrollback"
+    assert [(p["name"], p["source"]) for p in market["plugins"]] == [("scrollback", "./")]
 
 
 def test_no_home_paths_or_emails():
@@ -35,9 +35,9 @@ def test_no_home_paths_or_emails():
 
 
 def test_no_private_terms():
-    path = os.environ.get("SAVEDWISE_PRIVATE_TERMS")
+    path = os.environ.get("SCROLLBACK_PRIVATE_TERMS")
     if not path:
-        pytest.skip("set SAVEDWISE_PRIVATE_TERMS to a file with one private term per line")
+        pytest.skip("set SCROLLBACK_PRIVATE_TERMS to a file with one private term per line")
     terms = [t.strip().lower() for t in Path(path).read_text(encoding="utf-8").splitlines() if t.strip()]
     found = [f"{p.relative_to(ROOT)}: {t}" for p, text in repo_texts() for t in terms if t in text.lower()]
     assert found == []
