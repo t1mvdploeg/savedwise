@@ -19,7 +19,10 @@ def repo_texts():
     me = Path(__file__).resolve()
     for p in ROOT.rglob("*"):
         if p.is_file() and not SKIP & set(p.relative_to(ROOT).parts) and p != me:
-            yield p, p.read_text(encoding="utf-8", errors="ignore")
+            data = p.read_bytes()
+            if b"\0" in data:  # binary (images): random bytes give false matches
+                continue
+            yield p, data.decode("utf-8", errors="ignore")
 
 
 def test_manifests_agree():
