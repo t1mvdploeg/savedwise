@@ -38,9 +38,10 @@ You need [ffmpeg](https://ffmpeg.org/download.html) and [uv](https://docs.astral
 
 | File | What is in it |
 | --- | --- |
-| `items/<id>.md` | One note per post: what is explained, every tool, repo and link mentioned, the core claim, and how useful it really is |
+| `items/<id>.md` | One note per post: what is explained, every tool, repo and link mentioned, the core claim, and how useful it really is. Posts that show a site or app also get a **Design** section: colours, type, layout, effects, and the likely libraries, marked as seen on screen or guessed from the look |
 | `domains/*.md` | Posts grouped by topic, the best source picked where posts overlap, and which tip fits which of your projects |
 | `OVERVIEW.md` | **Do these first** (the actions with the most value for you), **Skill ideas** (skills worth building from what you saved), and what stood out |
+| `STYLE.md` | The style your saved designs have in common, the libraries that keep showing up, and the best examples |
 
 Notes call out what posts like to hide: a link behind "comment X", undisclosed promotion, a transcript that is just music. Add newly saved posts later and only those are processed.
 
@@ -53,7 +54,7 @@ flowchart LR
   C -->|subagents read<br>frames and speech| D[items/<br>one note per post]
   P[Your projects<br>and Claude memory] --> E
   D --> E[domains/<br>OVERVIEW.md]
-  E -->|check.py| F[Do these first<br>Skill ideas]
+  E -->|check.py| F[Do these first<br>Skill ideas<br>STYLE.md]
 ```
 
 1. **Profile.** Claude reads your projects folder (READMEs, manifests, last commit), your `CLAUDE.md` and memory files, and your installed skills and plugins. You confirm the result.
@@ -62,7 +63,7 @@ flowchart LR
 4. **Notes.** Subagents read caption, transcript and frames and write one note per post.
 5. **Synthesis.** Claude groups the notes, judges overlap, ties tips to your projects, and `check.py` verifies that every post sits in exactly one domain and every link works.
 
-Everything is written to a folder you choose, by default `./favorites-kb/`, and stays on your machine.
+The first time, Claude asks where the knowledge base should live and remembers the answer in `~/.scrollback`; every later run adds to that same folder. Everything stays on your machine.
 
 ## What it does not do
 

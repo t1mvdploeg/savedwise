@@ -7,7 +7,7 @@ from pathlib import Path
 import pytest
 
 ROOT = Path(__file__).resolve().parent.parent
-SKIP = {".git", ".venv", "__pycache__", ".pytest_cache", ".superpowers"}
+SKIP = {".git", ".venv", "__pycache__", ".pytest_cache", ".superpowers", "HANDOFF.md"}  # HANDOFF.md is gitignored, private notes
 LEAKS = [
     re.compile(r"[A-Za-z]:\\Users\\", re.I),
     re.compile(r"/(?:Users|home)/[\w.-]+/"),

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Check a Scrollback knowledge base: every post has a note and sits in exactly one domain file, and every link to items/ resolves.
+"""Check a Scrollback knowledge base: every post has a note and sits in exactly one domain file, STYLE.md exists when a note has a Design section, and every link to items/ resolves.
 
 Posts that fetch.py tried but could not download (deleted, private, login refused) need no note; they are listed, not counted as problems.
 Usage: python check.py <kb-folder>   (exit code 1 when there are problems)
@@ -23,8 +23,11 @@ def problems(kb):
     kb = Path(kb)
     skip = set(not_fetched(kb))
     domains = sorted((kb / "domains").glob("*.md"))
-    texts = {f: f.read_text(encoding="utf-8") for f in [kb / "OVERVIEW.md", *domains] if f.exists()}
+    texts = {f: f.read_text(encoding="utf-8") for f in [kb / "OVERVIEW.md", kb / "STYLE.md", *domains] if f.exists()}
     out = [] if (kb / "OVERVIEW.md").exists() else ["OVERVIEW.md is missing"]
+    designs = [f for f in (kb / "items").glob("*.md") if "\n## Design" in f.read_text(encoding="utf-8")]
+    if designs and not (kb / "STYLE.md").exists():
+        out.append(f"STYLE.md is missing ({len(designs)} notes have a Design section)")
     for _, url in read_links(kb / "links.tsv"):
         i = item_id(url)
         if i in skip:

@@ -23,6 +23,6 @@ def test_every_referenced_file_exists():
 
 
 def test_note_sections_match_everywhere():
-    sections = ["## What is explained", "## Tools, repos and links mentioned", "## Core claim", "## Usefulness"]
+    sections = ["## What is explained", "## Tools, repos and links mentioned", "## Design", "## Core claim", "## Usefulness"]
     notes = (SKILL / "references" / "notes.md").read_text(encoding="utf-8")
     assert all(s in notes for s in sections)

@@ -1,6 +1,6 @@
 # Phase 5: Synthesis
 
-Goal: one `domains/N-<slug>.md` per topic and an `OVERVIEW.md`, tied to the user's profile. Reread `profile.md` first.
+Goal: one `domains/N-<slug>.md` per topic, an `OVERVIEW.md` and, when notes have a `## Design` section, a `STYLE.md`, tied to the user's profile. Reread `profile.md` first.
 
 ## 1. Domains
 
@@ -82,12 +82,51 @@ Skills worth building from these posts. Not built; ask and I will build one.
 ## What stood out
 
 - <3-5 patterns: bait, duplicates, how much the user already has, what was missing>
+
+**Style.** <one line on the recurring look> See [STYLE.md](STYLE.md).
 ```
 
 - "Do these first": 5 to 10 rows, ranked by value for this user.
 - Skill ideas: 2 to 5, each backed by at least two posts, or one post plus a pattern visible in the profile. Skip anything already in the Installed list.
 - Domain files link with `../items/<id>.md`, the overview with `items/<id>.md`. A domain's content lives only in its file, not repeated in the overview.
 
-## 5. Check and finish
+- Leave out the **Style** line when there is no `STYLE.md`.
 
-Run `uv run <skill>/scripts/check.py <kb>` until it prints `ok`. Posts it lists as "not fetched" could not be downloaded; they need no note and do not belong in a domain. Then tell the user where `OVERVIEW.md` is, the top three actions, which posts failed, and offer to build one of the skill ideas.
+## 5. STYLE.md
+
+Only when at least one note has a `## Design` section (`grep -l "^## Design" <kb>/items/*.md`). Read those sections, not the whole notes.
+
+```markdown
+# Style: the designs you saved
+
+[← Overview](OVERVIEW.md)
+
+<N> posts show a website, app or interface.
+
+## Recurring style
+
+- **Colours:** <what keeps coming back, with hex codes when notes have them> (<n> posts)
+- **Type:** <…>
+- **Layout:** <…>
+- **Effects:** <…>
+
+## Libraries that keep showing up
+
+| Library | Posts | How sure |
+| --- | --- | --- |
+| <name> | [<maker>](items/<id>.md), … | on screen in <n>, guessed in <m> |
+
+## Best examples
+
+| Post | Why |
+| --- | --- |
+| [<maker>: <short title>](items/<id>.md) | <what to take from it> |
+```
+
+- Only patterns seen in at least two posts go under "Recurring style"; give the count.
+- Libraries: most posts first. A library only ever guessed from the look gets "guessed only"; never present a guess as fact.
+- Best examples: 3 to 8 posts, chosen for how clearly the design shows and how much can be reused, not for the claims in the post.
+
+## 6. Check and finish
+
+Run `uv run <skill>/scripts/check.py <kb>` until it prints `ok`. Posts it lists as "not fetched" could not be downloaded; they need no note and do not belong in a domain. Then tell the user where `OVERVIEW.md` (and `STYLE.md`) is, the top three actions, which posts failed, and offer to build one of the skill ideas.

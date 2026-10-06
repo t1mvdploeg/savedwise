@@ -17,16 +17,23 @@ Check these before phase 3 and tell the user what is missing. Never install anyt
 
 ## The knowledge base
 
-Ask where it should live; default `./favorites-kb/`. Below, `<kb>` is that folder and `<skill>` is this skill's base directory.
+The knowledge base lives in one fixed folder, so every run adds to the same one. `~/.scrollback` holds its absolute path on one line.
+
+- `~/.scrollback` exists: use that folder. Do not ask again.
+- It does not exist: ask where the knowledge base should live (suggest `~/scrollback-kb`), create the folder and write its absolute path to `~/.scrollback`.
+- The user wants it elsewhere: move the folder only if they ask, then update `~/.scrollback`.
+
+Below, `<kb>` is that folder and `<skill>` is this skill's base directory.
 
 ```
 <kb>/
   profile.md        who the user is, their projects, what they have installed
   links.tsv         <collection><TAB><url>, one post per line
   raw/<id>/         downloads, caption, transcript, contact sheets
-  items/<id>.md     one note per post
+  items/<id>.md     one note per post, with a Design section when it shows a site, app or interface
   domains/N-<slug>.md
   OVERVIEW.md
+  STYLE.md          recurring style and libraries across the Design sections
 ```
 
 The id of a post is the last path segment of its URL.
@@ -52,7 +59,7 @@ Tell the user which phase you start at and why. Read the phase's reference file 
 2. **Links.** Collect post URLs from a saved collection via Claude in Chrome, or take pasted links. Read `references/links.md`.
 3. **Fetch.** Run `uv run <skill>/scripts/fetch.py <kb>`. See below.
 4. **Notes.** One note per post, written by subagents in batches. Read `references/notes.md`.
-5. **Synthesis.** Domains, overview, project fit, skill ideas; finish with `uv run <skill>/scripts/check.py <kb>`. Read `references/synthesis.md`.
+5. **Synthesis.** Domains, overview, project fit, skill ideas, `STYLE.md`; finish with `uv run <skill>/scripts/check.py <kb>`. Read `references/synthesis.md`.
 
 ### Phase 3: fetch
 

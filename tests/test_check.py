@@ -57,3 +57,17 @@ def test_post_without_raw_folder_still_needs_a_note(tmp_path):
         f.unlink()
     (kb / "raw" / "BBB222").rmdir()
     assert "BBB222: no note in items/" in check.problems(kb)
+
+
+def test_design_note_needs_style_file(tmp_path):
+    kb = make_kb(tmp_path, GOOD)
+    (kb / "items" / "AAA111.md").write_text("---\n## Design\n- Colours: black\n", encoding="utf-8")
+    assert check.problems(kb) == ["STYLE.md is missing (1 notes have a Design section)"]
+    (kb / "STYLE.md").write_text("[x](items/AAA111.md)\n", encoding="utf-8")
+    assert check.problems(kb) == []
+
+
+def test_broken_link_in_style_file(tmp_path):
+    kb = make_kb(tmp_path, GOOD)
+    (kb / "STYLE.md").write_text("[z](items/ZZZ999.md)\n", encoding="utf-8")
+    assert check.problems(kb) == ["STYLE.md: broken link items/ZZZ999.md"]
